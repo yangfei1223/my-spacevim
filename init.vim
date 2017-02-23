@@ -1,6 +1,6 @@
 set guioptions+=m
 "set guioptions+=T
-set lines=40 columns=80
+set lines=100 columns=200
 
 set encoding=utf-8
 set langmenu=zh_CN.utf-8
@@ -16,6 +16,17 @@ set termencoding=utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+" parens auto complete
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {<CR>}<Esc>O
+autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap } <c-r>=CloseBracket()<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
+
 
 
 " Here are some basic customizations, please refer to the top of the vimrc
@@ -25,8 +36,8 @@ let g:spacevim_colorscheme_default = 'molokai'
 let g:spacevim_colorscheme = 'molokai'
 let g:spacevim_default_indent =  4
 let g:spacevim_realtime_leader_guide = 1
-let g:spacevim_enable_neomake = 0
-let g:spacevim_guifonts =  'DejaVu\ Sans\ Mono\  for\ Powerline\ 11'
+let g:spacevim_enable_neomake = 1
+"let g:spacevim_guifonts =  Source\ Code\ Pro
 let g:spacevim_enable_guicolors = 0
 let g:spacevim_enable_ycm = 1
 let g:spacevim_enable_cursorline = 0
@@ -38,11 +49,9 @@ let g:spacevim_plugin_manager = 'dein'  " neobundle or dein or vim-plug
 let g:airline_powerline_fonts = 1
 
 
-
-
 " Change the default directory where all miscellaneous persistent files go.
 " By default it is ~/.cache/vimfiles.
-" let g:spacevim_plugin_bundle_dir = "~/.SpaceVim/vimfiles"
+let g:spacevim_plugin_bundle_dir = "/home/yangfei/.SpaceVim/vimfiles"
 
 " By default, language specific plugins are not loaded. This can be changed
 " with the following:
@@ -64,18 +73,18 @@ let g:airline_powerline_fonts = 1
  \ ]
 
 " Anything defined here are simply overrides
- set wildignore+=\*/node_modules/\*
- set guifont=Source\ Code\ Pro:h10
-
- set guifontwide=NSimSun:h10
-
+set wildignore+=\*/node_modules/\*
+" set guifont=Source\ Code\ Pro\ Light:h12
+" set guifontwide=NSimSun:h11
 
 
+" Call layers
 function! Layers()
     Layer 'fzf'
     Layer 'untie'
     Layer 'better-defaults'
     
+    Layer 'colors'
     Layer 'emoji'
     Layer 'goyo'
     Layer 'html'
@@ -95,15 +104,16 @@ function! Layers()
 endfunction
 
 
+" User init
 function! UserInit()
-    Plug 'extr0py/oni'
+
 
 endfunction
 
 
+" User config
 function! UserConfig()
-    color molokai
-    nnoremap Q :qa!<CR>
+
 
 endfunction
 
