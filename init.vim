@@ -1,6 +1,6 @@
 set guioptions+=m
 "set guioptions+=T
-set lines=100 columns=200
+set lines=150 columns=300
 
 set encoding=utf-8
 set langmenu=zh_CN.utf-8
@@ -51,7 +51,7 @@ let g:airline_powerline_fonts = 1
 
 " Change the default directory where all miscellaneous persistent files go.
 " By default it is ~/.cache/vimfiles.
-let g:spacevim_plugin_bundle_dir = "/home/yangfei/.SpaceVim/vimfiles"
+" let g:spacevim_plugin_bundle_dir = "/home/yangfei/.SpaceVim/vimfiles"
 
 " By default, language specific plugins are not loaded. This can be changed
 " with the following:
@@ -74,8 +74,8 @@ let g:spacevim_plugin_bundle_dir = "/home/yangfei/.SpaceVim/vimfiles"
 
 " Anything defined here are simply overrides
 set wildignore+=\*/node_modules/\*
-" set guifont=Source\ Code\ Pro\ Light:h12
-" set guifontwide=NSimSun:h11
+set guifont=Source\ Code\ Pro\ for\Powerline\ Light\ 12
+" set guifontwide=NSimSun\ 12
 
 
 " Call layers
