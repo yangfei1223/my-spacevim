@@ -16,6 +16,16 @@ set termencoding=utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+" Parens auto complete
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {<CR>}<Esc>O
+autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap } <c-r>=CloseBracket()<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
 
 
 " Here are some basic customizations, please refer to the top of the vimrc
